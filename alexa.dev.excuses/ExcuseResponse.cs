@@ -47,7 +47,7 @@ namespace alexa.dev.excuses
 			// Setup the configuration to support document loading
 			var config = Configuration.Default.WithDefaultLoader();
 			// Load the names of all The Big Bang Theory episodes from Wikipedia
-			var rando = 1;
+			var rando = new Random().Next(0,2);
 			string address = null;
 			if (rando == 0)
 			{
