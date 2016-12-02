@@ -68,7 +68,7 @@ namespace alexa.dev.excuses
 			"It's just some unlucky coincidence",
 			"It's never done that before",
 			"It's never shown unexpected behaviour like this before",
-			"It's not a code problem - our users need more training",
+			"It's not a code problem. our users need more training",
 			"It was working in my head",
 			"It worked yesterday",
 			"It works, but it's not been tested",
