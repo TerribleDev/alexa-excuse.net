@@ -7,6 +7,7 @@ using AlexaSkillsKit.Authentication;
 using AlexaSkillsKit.Json;
 using System.Threading.Tasks;
 using AlexaSkillsKit.UI;
+using System.Diagnostics;
 
 namespace alexa.dev.excuses
 {
@@ -22,6 +23,16 @@ namespace alexa.dev.excuses
 		public override SpeechletResponse OnLaunch(LaunchRequest launchRequest, Session session)
 		{
 			return CompileResponse();
+		}
+
+		public override bool OnRequestValidation(SpeechletRequestValidationResult result, DateTime referenceTimeUtc, SpeechletRequestEnvelope requestEnvelope)
+		{
+			if(!string.IsNullOrWhiteSpace(requestEnvelope?.Session?.Application?.Id) && !requestEnvelope.Session.Application.Id.Equals("amzn1.ask.skill.2327a089-3c06-47f7-accb-4b627136b652"))
+			{
+				WebApiApplication.telemetry.TrackEvent("Request envelope does not contain the appid");
+				return false;
+			}
+			return base.OnRequestValidation(result, referenceTimeUtc, requestEnvelope);
 		}
 
 		public override void OnSessionEnded(SessionEndedRequest sessionEndedRequest, Session session)
