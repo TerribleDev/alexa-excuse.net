@@ -17,6 +17,8 @@ namespace alexa.dev.excuses
 			"Even though it doesn't work, how does it feel?",
 			"Everything looks fine my end",
 			"How is that possible?",
+			"That was upvoted in stackoverflow",
+			"Thats a problem with a package we depend on",
 			"I broke that deliberately to do some testing",
 			"I can't make that a priority right now",
 			"I can't test everything",
