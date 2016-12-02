@@ -40,7 +40,7 @@ namespace alexa.dev.excuses
 			new SpeechletResponse()
 			{
 				OutputSpeech = new PlainTextOutputSpeech() { Text = a.GetAwaiter().GetResult() },
-				ShouldEndSession = true;
+				ShouldEndSession = true
 			});
 		}
 		public static async Task<string> GetExcuses()
