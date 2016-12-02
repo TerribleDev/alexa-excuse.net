@@ -18,15 +18,15 @@ namespace alexa.dev.excuses.Controllers
 		}
 		[Route("")]
 		[HttpPost]
-		public Task<HttpResponseMessage> Post()
+		public HttpResponseMessage Post()
 		{
-			return new ExcuseResponse().GetResponseAsync(this.Request);
+			return new ExcuseResponse().GetResponse(this.Request);
 		}
 		[Route("excuse")]
 		[HttpGet]
-		public Task<string> GetExcuse()
+		public string GetExcuse()
 		{
-			return ExcuseResponse.GetExcuses();
+			return ExcuseResponse.GetExcuse();
 		}
 	}
 }

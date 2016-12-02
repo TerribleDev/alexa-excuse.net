@@ -10,39 +10,37 @@ using AlexaSkillsKit.UI;
 
 namespace alexa.dev.excuses
 {
-	public class ExcuseResponse : SpeechletAsync
+	public class ExcuseResponse : Speechlet
 	{
 		
 
-		public override Task<SpeechletResponse> OnIntentAsync(IntentRequest intentRequest, Session session)
+		public override SpeechletResponse OnIntent(IntentRequest intentRequest, Session session)
 		{
 			return CompileResponse();
 		}
 
-		public override Task<SpeechletResponse> OnLaunchAsync(LaunchRequest launchRequest, Session session)
+		public override SpeechletResponse OnLaunch(LaunchRequest launchRequest, Session session)
 		{
 			return CompileResponse();
 		}
 
-		public override Task OnSessionEndedAsync(SessionEndedRequest sessionEndedRequest, Session session)
+		public override void OnSessionEnded(SessionEndedRequest sessionEndedRequest, Session session)
 		{
-			return Task.FromResult(0);
 		}
 
-		public override Task OnSessionStartedAsync(SessionStartedRequest sessionStartedRequest, Session session)
+		public override void OnSessionStarted(SessionStartedRequest sessionStartedRequest, Session session)
 		{
-			return Task.FromResult(0);
 		}
-		public Task<SpeechletResponse> CompileResponse()
+		public static SpeechletResponse CompileResponse()
 		{
-			return GetExcuses().ContinueWith(a =>
-			new SpeechletResponse()
+			var excuse = GetExcuse();
+			return new SpeechletResponse()
 			{
-				OutputSpeech = new PlainTextOutputSpeech() { Text = a.GetAwaiter().GetResult() },
+				OutputSpeech = new PlainTextOutputSpeech() { Text = excuse },
 				ShouldEndSession = true
-			});
+			};
 		}
-		public static async Task<string> GetExcuses()
+		public static string GetExcuse()
 		{
 			// Setup the configuration to support document loading
 			var item = new Random().Next(0, Excuses.ExcuseList.Count);
