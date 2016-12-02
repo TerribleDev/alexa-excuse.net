@@ -63,13 +63,15 @@ namespace alexa.dev.excuses
 				throw new Exception("Something really wrong with the rando generator");
 			}
 			// Asynchronously get the document in a new context using the configuration
-			var document = await BrowsingContext.New(config).OpenAsync(address);
-			// This CSS selector gets the desired content
-			var cellSelector = "a";
-			// Perform the query to get all cells with the content
-			var cells = document.QuerySelectorAll(cellSelector);
-			// We are only interested in the text - select it with LINQ
-			return cells.First().TextContent;
+			using (var document = await BrowsingContext.New(config).OpenAsync(address))
+			{
+				// This CSS selector gets the desired content
+				var cellSelector = "a";
+				// Perform the query to get all cells with the content
+				var cells = document.QuerySelectorAll(cellSelector);
+				// We are only interested in the text - select it with LINQ
+				return cells.First().TextContent;
+			}
 		}
 	}
 }
