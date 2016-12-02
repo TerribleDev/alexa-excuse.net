@@ -11,6 +11,12 @@ namespace alexa.dev.excuses.Controllers
 	public class AlexaController : ApiController
 	{
 		[Route("")]
+		[HttpGet]
+		public IHttpActionResult root()
+		{
+			return this.Ok("Yo");
+		}
+		[Route("")]
 		[HttpPost]
 		public Task<HttpResponseMessage> Post()
 		{
