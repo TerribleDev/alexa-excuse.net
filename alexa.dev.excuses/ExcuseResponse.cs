@@ -39,7 +39,8 @@ namespace alexa.dev.excuses
 			return GetExcuses().ContinueWith(a =>
 			new SpeechletResponse()
 			{
-				OutputSpeech = new PlainTextOutputSpeech() { Text = a.GetAwaiter().GetResult() }
+				OutputSpeech = new PlainTextOutputSpeech() { Text = a.GetAwaiter().GetResult() },
+				ShouldEndSession = true;
 			});
 		}
 		public static async Task<string> GetExcuses()
