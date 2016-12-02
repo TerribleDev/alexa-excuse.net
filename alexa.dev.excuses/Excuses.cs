@@ -75,6 +75,7 @@ namespace alexa.dev.excuses
 			"It works for me",
 			"It would have taken twice as long to build it properly",
 			"It would take too long to rewrite the code from scratch",
+			"I didn't write that",
 			"I usually get a notification when that happens",
 			"I was just fixing that",
 			"I was told to stop working on that when something important came up",
