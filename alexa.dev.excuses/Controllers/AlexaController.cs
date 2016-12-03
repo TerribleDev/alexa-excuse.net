@@ -15,7 +15,7 @@ namespace alexa.dev.excuses.Controllers
 		[HttpHead]
 		public IHttpActionResult root()
 		{
-			return this.Ok("Yo");
+			return this.Ok($"Yo, {Excuses.ExcuseList.Count} excuses");
 		}
 		[Route("")]
 		[HttpPost]
