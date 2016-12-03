@@ -12,6 +12,7 @@ namespace alexa.dev.excuses.Controllers
 	{
 		[Route("")]
 		[HttpGet]
+		[HttpHead]
 		public IHttpActionResult root()
 		{
 			return this.Ok("Yo");
