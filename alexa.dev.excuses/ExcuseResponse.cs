@@ -27,7 +27,7 @@ namespace alexa.dev.excuses
 
 		public override bool OnRequestValidation(SpeechletRequestValidationResult result, DateTime referenceTimeUtc, SpeechletRequestEnvelope requestEnvelope)
 		{
-			if(!string.IsNullOrWhiteSpace(requestEnvelope?.Session?.Application?.Id) && !requestEnvelope.Session.Application.Id.Equals("amzn1.ask.skill.77ffa04a-699d-452d-b8d5-4c128079a1b2"))
+			if(requestEnvelope?.Session?.Application?.Id?.Equals("amzn1.ask.skill.77ffa04a-699d-452d-b8d5-4c128079a1b2") == false)
 			{
 				WebApiApplication.telemetry.TrackEvent("Request envelope does not contain the appid");
 				return false;
