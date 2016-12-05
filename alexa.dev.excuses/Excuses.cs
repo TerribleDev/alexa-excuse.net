@@ -12,6 +12,7 @@ namespace alexa.dev.excuses
 		public static List<string> ExcuseList = new List<string>()
 		{
 			"Actually, that's a feature",
+            "I didn't make any changes that should have broke anything",
 			"Did you check for a virus on your system?",
 			"Don't worry, that value is only wrong half of the time",
 			"Even though it doesn't work, how does it feel?",
